@@ -1,0 +1,308 @@
+﻿<%@ Page MaintainScrollPositionOnPostback="true"   Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<!DOCTYPE html>
+<!--Author: Anuvaa Softech Pvt. Ltd
+Author URL: http://anuvaasoft.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Swapnpurti Matrimony | Home </title>
+    
+
+        <link rel="alternate" href="http://swapnpurti.in" hreflang="en-in" /> <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" /><link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-1.11.0.min.js"></script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }>
+</script>
+<meta name="keywords" content="Matrimony Website, Maharashtra, India, Indian, Hindi, Marathi, Tamil, Telugu, Franchisee, Marriage" />
+<!--Google Fonts-->
+    <link href="css/font-awesome.css" rel="stylesheet" />
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript">
+	    jQuery(document).ready(function ($) {
+	        $(".scroll").click(function (event) {
+	            event.preventDefault();
+	            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+	        });
+	    });
+	</script>
+<!-- //end-smoth-scrolling -->
+<!-- animated-css -->
+		<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+    
+		<script src="js/wow.min.js"></script>
+		<script>
+		    new WOW().init();
+		</script>
+   <!--  <script>
+        function dis() {
+            alert('Copy Nako Karu Re Bho');
+            return false;
+        }</script>
+<!-- animated-css -->
+  <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+</head>
+<body>
+    <form id="default" runat="server" >
+<!--banner start here-->
+<div class="banner">
+	 <div class="header">
+			<div class="container">
+		      <div class="header-main">
+				<div class="logo wow bounceInLeft" data-wow-delay="0.3s">
+					<a href="Default.aspx"><img src="images/lo.png" alt=""></a>
+				</div>
+				<div class="head-right">
+					<ul> 
+						<li><a href="Register/Login.aspx"><i class="fa fa-sign-in "></i> Login</a></li>
+                        <li><a href="Register/Registration.aspx"><i class="fa fa-registered"></i> Register</a></li>
+                        <li><a href="Admin/login.aspx" ><i class="fa fa-user"></i> Franchisee</a></li>
+					</ul>
+				</div>
+			  <div class="clearfix"> </div>
+			</div>
+			
+		</div>
+	</div> 
+    <div class="col-lg-1"></div>
+    <div class="banner-main col-lg-10">
+            <div class="slides wow bounceInDown" data-wow-delay="0.5s">
+  <div>	<h2 >Welcome To Swapnpurti Matrimony</h2></div>
+  <div>	<h2 >Search Perfect Life Partner</h2></div>
+  <div>	<h2 >Understand your Life Partner</h2></div>
+ <div>	<h2 >For Happy Weddings</h2></div>
+</div><br /><br /><br />
+        <div class="col-lg-3"></div>
+				 <div style="background-color:#000000;  opacity: 0.7; padding:20px 20px;" class="col-lg-6">
+                     
+                     <div class="col-lg-4"><asp:Label ID="Button3"  CssClass="sp"   runat="server" Text="Partner Search " />  </div>
+               
+                     <div class="col-lg-4"> <asp:Button ID="Button1"  CssClass="btn btns " Width="80px"  data-wow-delay="0.7s" runat="server" Text="Bride" />   </div>
+               
+                     <div class="col-lg-4"> <asp:Button ID="Button2"  CssClass="btn btns " Width="80px" data-wow-delay="0.7s" runat="server" Text="Groom" /></div>
+               
+                <br /> <br /> </div>
+			</div>
+</div>
+<!--baner end here-->
+<!--navgation start here-->
+ <div class="navgation">
+	<div class="fixed-header">
+				<div class="top-nav"> 
+                   <span class="menu"> </span>
+                      <div class="phone" >
+
+                          <ul>
+						<li style="color: #FFFFFF"> <i class="fa fa-phone "></i> 0 9561421489</li>
+                       </ul>
+                      </div>  
+                        <ul class="drop_menu">
+						<li><a href="Default.aspx" class="active">Home</a>
+                           <%--  <ul>
+	                            <li><i class="fa fa-registered"></i><a href='#'>Sub Link 1</a></li>
+	                            <li><a href='#'>Sub Link 2</a></li>
+	                            </ul>--%>
+						</li>
+					    <li><a href="WhoWeAre.aspx">Who We Are</a></li>
+						<li><a href="Services.aspx">Services</a></li>	
+                        <li><a href="Register/FranchiseeRegister.aspx">Work with Us</a></li>				
+						<li><a href="Contact.aspx">Contact</a></li>
+					</ul> 
+				<!-- script-nav -->
+			<script>
+			    $("span.menu").click(function () {
+			        $(".top-nav ul").slideToggle(500, function () {
+			        });
+			    });
+			</script>
+			<script type="text/javascript">
+			    jQuery(document).ready(function ($) {
+			        $(".scroll").click(function (event) {
+			            event.preventDefault();
+			            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+			        });
+			    });
+					</script>
+				<!-- //script-nav -->
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	<!--script-->
+			<!-- script-for sticky-nav -->
+		<script>
+		    $(document).ready(function () {
+		        var navoffeset = $(".navgation").offset().top;
+		        $(window).scroll(function () {
+		            var scrollpos = $(window).scrollTop();
+		            if (scrollpos >= navoffeset) {
+		                $(".navgation").addClass("fixed");
+		            } else {
+		                $(".navgation").removeClass("fixed");
+		            }
+		        });
+
+		    });
+		</script>
+		<!-- /script-for sticky-nav -->
+
+<!--navgaton end here-->
+        <div class="services">
+	<div class="container"> 
+     
+		<div class="services-main">    <h2>About Us</h2>
+			<div class="service-bottom text-justify">	
+                <div class="col-lg-2"></div>			
+				<div class="col-md-8 services-right wow bounceInRight" data-wow-delay="0.5s">
+					<h4> "God created two souls and tight them with single knot called marriage"</h4>
+					<p>swapnpurti.in site is an online marriage bureau, dedicated to help people  meet their life partners for marriage in a comfortable environment. We provide complete and wide-ranging listing of matrimonial profiles for people seeking their soul mates. <br />
+Our site collects profiles of potential brides and grooms from all over the world. People searching for their soul mates can upload their bio-data, photos and other required details after registering on this site. We have a well equipped and trusted matrimony service to help peoples to find their life partners.  We are very passionate in providing the best service to our members and expand the opportunities for our members.<br />
+Our motto is to provide a pleasant and superior matchmaking experience to our brides and grooms to meet their prospective life partners along with protecting their privacy and security.<br />
+We welcome you to experience this success in your partner search through our ultimate matchmaking assistance.
+ </p>
+				</div>
+                 
+			  <div class="clearfix"> </div>
+			</div>
+		</div>
+        </div>
+            </div>
+       
+<!--we do grid start here-->
+ <div class="we-do">
+	<div class="container">
+		<div class="wedo-main">
+			<div class="we-do-top">
+				<h3>How we can help you..</h3>
+                <h4>We are helping the people who seek for true life partners because<br /> “Any home can be castle when the king and queen are in love.”</h4>
+			</div>
+			<div class="we-do-bottom">
+				<div class="col-md-3 we-do-grid wow bounceIn" data-wow-delay="0.4s">
+				 	<i class="fa fa-male fa-4x iconcolor"></i> 
+					<h4>Search for Groom</h4>
+				 
+				</div>
+				<div class="col-md-3 we-do-grid wow bounceIn" data-wow-delay="0.4s">
+					<i class="fa fa-female fa-4x iconcolor"></i> 
+					<h4>Search for Bride</h4>
+					 
+				</div>
+				<div class="col-md-3 we-do-grid wow bounceIn" data-wow-delay="0.4s">
+					<i class="fa fa-commenting fa-4x iconcolor"></i> 
+					<h4>Talk with Members</h4>
+				 
+				</div>
+				<div class="col-md-3 we-do-grid wow bounceIn" data-wow-delay="0.4s">
+				<i class="fa fa-picture-o fa-4x iconcolor"></i> 
+					<h4>Share Images</h4>
+				 
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		  <div class="clearfix"> </div>
+		</div>
+	</div>
+     
+
+</div>
+<!--we do grid end here
+<!--main starip statr here-->
+<%--<div class="main-strip">
+	<div class="container">
+		<div class="main-strip-start">
+			<h3>Success Stories</h3> 
+		</div>
+	</div>
+</div>--%>
+<!--main strip end here-->
+<!--success stories  start here-->
+<%--<div class="success-stories">
+	<div class="container">
+		<div class="success-stories-main">
+			<div class="col-md-4 success-stories-grids wow bounceIn" data-wow-delay="0.4s">
+				<a href="single.html"><img src="images/h1.jpg" alt="" class="img-responsive"></a>
+				<div class="food-details">
+					<h4><a href="single.html">Couple One</a></h4>
+					<p>We help you get the right Life Partner, We help you get the right Life Partner</p>
+				</div>
+			</div>
+			<div class="col-md-4 success-stories-grids wow bounceIn" data-wow-delay="0.4s">
+				<a href="single.html"><img src="images/h2.jpg" alt="" class="img-responsive"></a>
+				<div class="food-details">
+					<h4><a href="single.html">Couple Two</a></h4>
+					<p>We help you get the right Life Partner, We help you get the right Life Partner</p>
+				</div>
+			</div>
+			<div class="col-md-4 success-stories-grids wow bounceIn" data-wow-delay="0.4s">
+				<a href="single.html"><img src="images/h3.jpg" alt="" class="img-responsive"></a>
+				<div class="food-details">
+					<h4><a href="single.html">Couple Three</a></h4>
+					<p>We help you get the right Life Partner, We help you get the right Life Partner</p>
+				</div>
+			</div>
+		  <div class="clearfix"> </div>
+		</div>
+	</div>
+</div>--%>
+<!--success stories  end here-->
+       
+        <%--<div class="main-strip-login">
+	<div class="container">
+		<div class="main-strip-start">
+			<h3>Login or Register</h3> 
+		</div>
+	</div>
+</div>--%>
+<%-- Login --%>
+ <%--<div class="services">
+	<div class="container">
+		<div class="services-main">			 
+			<div class="service-bottom">	 
+				 
+			  <div class="clearfix"> </div>
+			</div> 
+		  		<div class="clearfix"> </div>  
+		</div>
+	</div>
+</div>--%>
+        <%-- login end --%>
+        </form>
+<!--footer start here-->
+      <div class="pull-right"></div>
+
+ <div class="pull-right">  </div>
+<div class="footer">
+	<div class="container"> 
+		<div class="copyright">
+			<p>© 2015 Swapnpurti Matrimony All rights reserved by Swapnpurti Matrimony | Design by  <a href="http://anuvaasoft.com/" target="_blank">  Anuvaa Softech Pvt. Ltd </a></p>
+            <p><asp:Label ID="lblUserCount" runat="server" ForeColor="Wheat" ></asp:Label>	  <asp:Label  ID="lblHits" runat="server" ForeColor="Wheat"></asp:Label></p>
+		</div>
+	</div>
+</div>
+<!--footer end here-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="slick/slick.min.js"></script>
+
+  <script type="text/javascript">
+      $(document).ready(function () {
+          $('.slides').slick({
+              autoplay: true
+          });
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+
+aspx file
+............................................ 
+
+<asp:Image ID="imgMemberPhoto"  runat="server"  Height="50px" Width="50px"/>
+
+       <br />
+       <br />
+     <asp:HyperLink ID="lblMemberName" runat="server" Text=""  NavigateUrl="~/Members/SearchMatches/Default.aspx"></asp:HyperLink>
+   ( <asp:Label ID="lblMemberId" runat="server" Text=""></asp:Label>)
+       <br />
+    <asp:Label ID="Label13" runat="server" Text=" Account Type:"></asp:Label>
+    <asp:Label ID="lblMembership" runat="server" Text=""></asp:Label>&nbsp;&nbsp;
+       <asp:HyperLink Text="Upgrade Now" runat="server" ID="lnkUpgrade" NavigateUrl="~/members/Subscription/ViewPackage.aspx"></asp:HyperLink>
+        <asp:Label ID="lblmemUpgrade" runat="server" Text="" ForeColor="#2C2CFE"></asp:Label>
+        <hr />
+
+
+
+
+cs file
+........................................................................
+ if (Session["memberid"] == null)
+        {
+            Response.Write("<script>alert('Please Try Again');window.location='../../register/login.aspx';</script>");
+            Response.Cache.SetExpires(DateTimeOffset.UtcNow.LocalDateTime.AddMinutes(-1));
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetNoStore();
+        }
+..................................................
+
+  static string gen = string.Empty;
+  public void MemberBasicData()
+    {
+        try
+        {
+            dbc.con.Close();
+            MySql.Data.MySqlClient.MySqlCommand cmde = new MySql.Data.MySqlClient.MySqlCommand("select varMemberId,varMemberName,varGender,varMembershipType,varPhoto FROM tblammemberregistration WHERE varMemberId='" + Session["memberid"].ToString() + "' ", dbc.con);
+            dbc.con.Open();
+            dbc.dr = cmde.ExecuteReader();
+            if (dbc.dr.Read())
+            {
+                lblMemberId.Text = dbc.dr["varMemberId"].ToString();
+                lblMemberName.Text = dbc.dr["varMemberName"].ToString();
+                lblMembership.Text = dbc.dr["varMembershipType"].ToString();
+               
+                gen = dbc.dr["varGender"].ToString();       
+                imgMemberPhoto.ImageUrl = "~/members/media/" + dbc.dr["varPhoto"].ToString(); 
+                if (dbc.dr["varMembershipType"].ToString() == "Paid")
+                {
+                    MySql.Data.MySqlClient.MySqlCommand cmdm = new MySql.Data.MySqlClient.MySqlCommand("SELECT (SELECT distinct varPackageName FROM tblampackages WHERE varPackageId=tblammembertransactions.varPackageId) as ViewMemPackage FROM tblammembertransactions WHERE varMemberId='" + Session["memberid"].ToString() + "' and varOrderStatus='Confirmed'  order by intId DESC", dbc.con1);
+                  
+                    dbc.con1.Open();
+                    dbc.dr1 = cmdm.ExecuteReader();
+                    if (dbc.dr1.Read())
+                        {
+                            lblmemUpgrade.Visible = true;
+                            lnkUpgrade.Visible = false;
+                              lblmemUpgrade.Text = dbc.dr1["ViewMemPackage"].ToString();
+                        }
+                    dbc.con1.Close();
+                       dbc.dr1.Close();
+                }
+                else   if (dbc.dr["varMembershipType"].ToString() == "Unpaid")
+                {
+                    lblmemUpgrade.Visible = false;
+                    lnkUpgrade.Visible = true;
+                }
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(
+              this,
+              this.GetType(),
+              "MessageBox",
+              "alert('Some problem Please try again...!!!');", true);
+            }
+            dbc.con.Close();
+            dbc.dr.Close();
+        }
+        catch (Exception ex)
+        {
+            ScriptManager.RegisterStartupScript(
+                   this,
+                   this.GetType(),
+                   "MessageBox",
+                   "alert('" + ex.Message + "');", true);
+        }
+    }

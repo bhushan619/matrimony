@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using MySql.Data.MySqlClient;
+
+public partial class Admin_ViewFranchiseeCommission : System.Web.UI.Page
+{
+    DatabaseConnection dbc = new DatabaseConnection();
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["adminid"] == null)
+        {
+            Response.Write("<script>alert('Please Try Again');window.location='../register/FranchiseeRegisterj.aspx';</script>");
+            Response.Cache.SetExpires(DateTimeOffset.UtcNow.LocalDateTime.AddMinutes(-1));
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetNoStore();
+        }
+        else
+        {
+            if (!IsPostBack)
+            {
+                notifications();
+            }
+        }
+    }
+    public void notifications()
+    {
+        lnkNotifications.Text = dbc.count_tblamnotifications(Session["adminid"].ToString(), "Admin").ToString();
+    }
+
+}

@@ -1,0 +1,68 @@
+Matrimony Profile for
+Full Name
+Gender Male Female Other
+Mobile No.
+Email Id
+Password
+Franchisee (If Any)
+
+
+............................
+Date of birth(DD-MM-YYYY)
+Marital status (Never Married/ Widow /Divorced /Awaiting divorce)
+
+About myself
+
+Religious Information
+......................
+Mother Tongue
+Religion
+Caste/Division
+Sub Caste
+Gotra /Gothram
+Manglik (Yes/ No/ Do not know)
+
+
+Physical Appearance
+......................
+Height(0ft0in) or(0cms)
+Weight(0kg)
+Bloodgroup(A+,A-,B+,B-,AB+,AB-,O+,O-)
+Bodytype( Slim /Average/ Athletic/ Heavy)
+Complexion( Fair/ Wheatish /Wheatish/ Medium Dark)
+Special Case
+
+Professional Information
+..........................
+Highest qualification
+Additional Degree
+Employee In
+Occupation
+Annual Income
+
+
+Living in
+............
+Country
+Citizenship
+State
+City
+
+
+Family Information
+......................
+Family status( Middle class/ Upper middle class/ Rich /Affluent)
+Family type( Joint/ Nuclear /Other)
+Family value (Orthodox /Traditional /Moderate /Liberal)
+
+About your lifestyle
+........................
+Eating habits (Vegetarian /Non-Vegetarian /Eggetarian /Jain)
+Smoke (Yes/ No /Occasionally)
+Drink (Yes /No /Occasionally)
+Upload Photo
+Upload Biodata
+
+
+
+

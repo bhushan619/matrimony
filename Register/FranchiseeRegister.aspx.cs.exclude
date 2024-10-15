@@ -1,0 +1,144 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Net.Mail;
+using System.Net;
+using System.IO;
+using MySql.Data.MySqlClient;
+using System.Data;
+using System.Configuration;
+
+public partial class Register_FranchiseeRegister : System.Web.UI.Page
+{
+    MySql.Data.MySqlClient.MySqlConnection con;
+    public MySql.Data.MySqlClient.MySqlDataReader dr;
+    DatabaseConnection dbc = new DatabaseConnection();
+    string gen = string.Empty;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        con = new MySql.Data.MySqlClient.MySqlConnection();
+        con.ConnectionString = ConfigurationManager.ConnectionStrings["matrimonyConnectionString"].ConnectionString;
+
+        Session.Abandon();
+        Session.Clear();
+        if (!IsPostBack)
+        {
+        }
+    }
+
+    private string PopulateBody(string name, string EmailId, string VerifyLink)
+    {
+        string body = string.Empty;
+        using (StreamReader reader = new StreamReader(Server.MapPath("~/Admin/emails/register.html")))
+        {
+            body = reader.ReadToEnd();
+        }
+        body = body.Replace("{name}", name);
+        body = body.Replace("{EmailId}", EmailId);
+        body = body.Replace("{VerifyLink}", VerifyLink);
+        return body;
+    }
+    protected void sendmail(string verify)//, string cos)
+    {
+        try
+        {
+            string mess = string.Empty;
+            string email = string.Empty;
+
+            mess = "http://swapnpurti.in/Admin/verify.aspx?fvid=";
+            email = txtEmail.Text;
+
+            using (MailMessage mm = new MailMessage(new MailAddress("Swapnpurti Matrimony <swapnpurtimatrimony@gmail.com>"), new MailAddress(email)))
+            {
+                mm.Subject = "Swapnpurti Matrimony : Verification Email";
+
+                mm.Body = PopulateBody(txtMemberName.Text, email, mess + verify);
+
+                mm.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                NetworkCredential NetworkCred = new NetworkCredential("swapnpurtimatrimony@gmail.com", "anuvaa2015");
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = NetworkCred;
+                smtp.Port = 587;
+                smtp.Send(mm);
+
+            }
+        }
+        catch (Exception rx)
+        {
+            ScriptManager.RegisterStartupScript(
+                         this,
+                         this.GetType(),
+                         "MessageBox",
+                          "alert('not sent');", true);
+
+        }
+    }
+
+    protected void btnRegister_Click(object sender, EventArgs e)
+    {
+        try
+        {
+
+            if (dbc.check_already_franchisee(txtEmail.Text) == 1)
+            {
+                // pass.Visible = true;
+                lblError.Text = "This Email is already registered. Did You forget password? If yes please retrieve your password.";
+            }
+
+            else
+            {
+                string verify = dbc.CreateRandomPassword(8);
+                string franid = string.Concat("SMFR", dbc.CreateRandomMemberId(7));
+                int insert_ok = dbc.insert_tblRegisterFranchisee(franid, txtMemberName.Text, txtMobile.Text, verify, txtEmail.Text, verify, txtPassword.Text);
+
+                if (insert_ok == 1)
+                {
+                    dbc.insert_tblamnotifications("Session", franid, txtMemberName.Text, "Franchisee", 1.ToString(), "Admin", "New Franchisee registeres", "~/Admin/Franchisee/ViewFranchiseeProfile.aspx", franid, "Unread", "");
+                    sendmail(verify);
+                    ScriptManager.RegisterStartupScript(
+                       this,
+                       this.GetType(),
+                       "MessageBox",
+                       "alert('Registration completed please check email for verification');window.location='../register/FranchiseeRegisterj.aspx';", true);
+
+                    clear();
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(
+                  this,
+                  this.GetType(),
+                  "MessageBox",
+                  "alert('Some problem Please try again...!!!');", true);
+                }
+
+            }
+
+        }
+        catch (Exception ex)
+        {
+            ScriptManager.RegisterStartupScript(
+                   this,
+                   this.GetType(),
+                   "MessageBox",
+                   "alert('" + ex.Message + "');", true);
+        }
+
+    }
+    public void clear()
+    {
+        txtEmail.Text = "";
+        txtMemberName.Text = "";
+        txtMobile.Text = "";
+        txtPassword.Text = "";
+
+    }
+   
+}

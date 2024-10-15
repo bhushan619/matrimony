@@ -1,0 +1,109 @@
+﻿
+time of birth in am/pm format-currected
+2. living details me add adress coloumn-currected
+3. selection of profile
+4. rashi should be added in partner profile-currected
+5. upgrade page pending-currected
+6. faq page
+7. no name in mail after registration-currected
+8. notification page-currected
+9. Franchisee id add SM-currected    
+10. no bell mark for notification page for francgisee-currected
+code for popup galary
+
+
+
+added farmer,retired in father occupation
+added housewief in mother occupation
+add visibility in photo view page
+design recently viewed page in search mateches
+
+
+http://dimsemenov.com/plugins/magnific-popup/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<asp:ListView ID="lstViewedProfiles" runat="server" OnPagePropertiesChanging="OnPagePropertiesChanging"
+             GroupPlaceholderID="groupPlaceHolder1">
+              <EmptyDataTemplate>
+                <span>No Recently Viewed  Profiles Found.</span>
+            </EmptyDataTemplate> 
+            <ItemTemplate>
+             <asp:LinkButton ID="lblCollege" runat="server"    CommandArgument='<%# Eval("ViewMemId") %>'
+         OnClick="OpenProfile" Text='<%# Eval("ViewMemId") %>'></asp:LinkButton> 
+  &nbsp;&nbsp;&nbsp;&nbsp; <asp:LinkButton ID="lblname" runat="server"    CommandArgument='<%# Eval("ViewMemId") %>'
+   OnClick="OpenProfile" Text='<%# Eval("ViewMemPackage") %>'></asp:LinkButton>&nbsp;&nbsp;&nbsp;&nbsp; 
+  <%--  Viewed On: <asp:Label ID="Label7" runat="server" Text='<%# Eval("ViewMemDate") %>' />--%>&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;
+<asp:LinkButton ID="LinkButton2" runat="server"    CommandArgument='<%# Eval("ViewMemId") %>'
+       OnClick="OpenProfile" Text="View  Profile"></asp:LinkButton>&nbsp;&nbsp;&nbsp;&nbsp;  <br />
+     <asp:ImageButton ID="imgSimilarPic" runat="server"  Height="70px" Width="70px" OnClick="imgmember_Click" 
+                               ImageUrl='<%# "~/members/media/" + Eval("ViewMemPhoto") %>' /> <br />  
+Profile Created For <asp:Label ID="Label9" runat="server" Text='<%# Eval("ViewMemAccFor") %>' />,<br /> 
+Name:<asp:Label ID="Label10" runat="server" Text='<%# Eval("ViewMemName") %>' /><br /> 
+Age,Height:<asp:Label ID="AgeLabel" runat="server" Text='<%# Eval("ViewMemAge") %>' />,
+   <asp:Label ID="HeightLabel" runat="server" Text='<%# Eval("ViewMemHeight") %>' />/ 
+           <asp:Label ID="Label6" runat="server" Text='<%# Eval("ViewMemHeightcm") %>' />, <br />  
+Religion:    <asp:Label ID="ReligionLabel" runat="server" Text='<%# Eval("ViewMemReligion") %>' /><br /> 
+ Caste:     <asp:Label ID="CasteLabel" runat="server" Text='<%# Eval("ViewMemCaste") %>' /> <br /> 
+ Subcaste:     <asp:Label ID="Label5" runat="server" Text='<%# Eval("ViewMemSCaste") %>' />  <br /> 
+  Location: <asp:Label ID="Label3" runat="server" Text='<%# Eval("ViewMemCity") %>' />,  
+       <asp:Label ID="Label2" runat="server" Text='<%# Eval("ViewMemState") %>' /> ,
+         <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("ViewMemCountry") %>' />  <br />
+ Education:   <asp:Label ID="EducationLabel" runat="server" Text='<%# Eval("ViewMemEducation") %>' /> <br />
+    Occupation:        <asp:Label ID="Label4" runat="server" Text='<%# Eval("ViewMemOccupation") %>' />  <br />
+    About <asp:Label ID="Label11" runat="server" Text='<%# Eval("ViewMemAccFor") %>' />: 
+     <asp:Label ID="lblDescription" runat="server"
+                Text='<%# Limit(Eval("ViewMemAbout"),40) %>' 
+                Tooltip='<%# Eval("ViewMemAbout") %>'>
+      </asp:Label>
+      <asp:LinkButton ID="ReadMoreLinkButton" runat="server"   Text="Read More"  CommandArgument='<%# Eval("ViewMemId") %>'    OnClick="OpenProfile">    </asp:LinkButton>
+  <br /> 
+           <asp:LinkButton ID="LinkButton1" runat="server"    CommandArgument='<%# Eval("ViewMemId") %>' OnClick="OpenProfile" Text="View Full Profile"></asp:LinkButton>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <asp:LinkButton ID="lnkInterest" runat="server" OnClick="lnkInterest_Click"  CommandArgument='<%# Eval("ViewMemId") %>' Text="Send Interest"></asp:LinkButton> &nbsp;&nbsp;&nbsp;
+        <asp:LinkButton ID="lnkShortlist" runat="server" onclick="lnkShortlist_Click"  CommandArgument='<%# Eval("ViewMemId") %>' Text="Shortlist"></asp:LinkButton>     
+                <br /><br /><br />
+             
+          </ItemTemplate>
+            <LayoutTemplate>  <asp:PlaceHolder runat="server" ID="groupPlaceHolder1"></asp:PlaceHolder>
+            <div ID="itemPlaceholderContainer" runat="server" style="">
+                    <span runat="server" id="itemPlaceholder" />
+                </div>
+              
+                <asp:DataPager ID="DataPager1" runat="server" PagedControlID="lstViewedProfiles" PageSize="10">
+                    <Fields>
+                        <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="false" ShowPreviousPageButton="true"
+                            ShowNextPageButton="false" />
+                        <asp:NumericPagerField ButtonType="Link" />
+                        <asp:NextPreviousPagerField ButtonType="Link" ShowNextPageButton="true" ShowLastPageButton="false" ShowPreviousPageButton = "false" />
+                    </Fields>
+                </asp:DataPager>
+           
+</LayoutTemplate>
+        </asp:ListView>

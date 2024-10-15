@@ -1,0 +1,386 @@
+﻿<%@ Page MaintainScrollPositionOnPostback="true"   Language="C#" AutoEventWireup="true" CodeFile="EditSelfProfile.aspx.cs" Inherits="members_UserProfile_Self_EditProfile" %>
+
+<!DOCTYPE html >
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>    <link rel="alternate" href="http://swapnpurti.in" hreflang="en-in" />
+    
+</head>
+<body oncontextmenu="return false;">
+    <form id="form1" runat="server">
+           <asp:HyperLink ID="lnkNotifications" NavigateUrl="~/members/Activities/Notification.aspx" ToolTip="Notification" runat="server" CssClass="notif"> </asp:HyperLink>
+  
+    <div text="Film songs">&nbsp;<asp:Label ID="Label1" runat="server" Font-Bold="True" 
+            Text="Edit Profile"></asp:Label>
+        <br />
+        <br />
+        <asp:Label ID="Label2" runat="server" Font-Bold="True" 
+            Text="Edit Personal Information"></asp:Label>
+        <br />
+        <asp:Label ID="Label3" runat="server" Text="Full name"></asp:Label>
+        <asp:TextBox ID="txtFullName" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label4" runat="server" Text="Date of birth"></asp:Label>
+        <asp:DropDownList ID="ddlDay" runat="server">
+        <asp:ListItem>Day</asp:ListItem>
+
+        </asp:DropDownList>
+        <asp:DropDownList ID="ddlMonth" runat="server">
+         <asp:ListItem>Month</asp:ListItem>
+
+        </asp:DropDownList>
+        <asp:DropDownList ID="ddlYear" runat="server">
+          <asp:ListItem>Year</asp:ListItem>
+
+        </asp:DropDownList>
+        <br />(Full Name & Date of Birth not Edited)
+        <br />
+        <asp:Label ID="Label5" runat="server" Text="Marital status"></asp:Label>
+        <asp:RadioButton ID="rgbNeverMarrided" runat="server" GroupName="rgbMstatus" 
+            Text="Never Married" />
+        <asp:RadioButton ID="rgbWidow" runat="server" GroupName="rgbMstatus" 
+            Text="Widow" />
+        <asp:RadioButton ID="rgbDivorced" runat="server" GroupName="rgbMstatus" 
+            Text="Divorced" />
+        <asp:RadioButton ID="rgbAwaitingDivorce" runat="server" GroupName="rgbMstatus" 
+            Text="Awaiting divorce" />
+        <br />
+        <asp:Label ID="Label6" runat="server" Text="No. of children"></asp:Label>
+        <asp:DropDownList ID="ddlNoOfChild" runat="server">
+          <asp:ListItem>--Select --</asp:ListItem>
+          <asp:ListItem>None</asp:ListItem>
+          <asp:ListItem>1 </asp:ListItem>
+          <asp:ListItem>2</asp:ListItem>
+          <asp:ListItem>3</asp:ListItem>
+          <asp:ListItem>4 and Above</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label7" runat="server" Text="Children status"></asp:Label>
+        <asp:RadioButton ID="rgbCLive" runat="server" GroupName="rgbChildStatus" 
+            Text="Children living with me" />
+        <asp:RadioButton ID="rgbCNotLive" runat="server" GroupName="rgbChildStatus" 
+            Text="Children not living with me" />
+        <br />
+        <asp:Label ID="Label38" runat="server" Text="About myself"></asp:Label>
+        <asp:TextBox ID="txtAboutMyself" runat="server" TextMode="MultiLine"></asp:TextBox>
+        <br />
+
+         <asp:Button ID="btnPersonalSave" runat="server" Text="Save" />
+        &nbsp;<asp:Button ID="btnPersonalCancel" runat="server" Text="Cancel" />
+        <br />
+        <br />
+        <asp:Label ID="Label30" runat="server" Text="Edit Religious Information" 
+            Font-Bold="True"></asp:Label>
+        <br />
+        <asp:Label ID="Label31" runat="server" Text="Mother Tongue"></asp:Label>
+        <asp:DropDownList ID="ddlMotherTongue" runat="server">
+        <asp:ListItem>--Select Mother Tongue--</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label32" runat="server" Text="Religion"></asp:Label>
+        <asp:DropDownList ID="ddlReligion" runat="server">
+        <asp:ListItem>--Select Religion--</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label33" runat="server" Text="Caste/Division"></asp:Label>
+        <asp:DropDownList ID="ddlCaste" runat="server">
+        <asp:ListItem>--Select Caste/Division--</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label34" runat="server" Text="Sub Caste"></asp:Label>
+        <asp:TextBox ID="txtSubCaste" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label35" runat="server" Text="Gotra /Gothram"></asp:Label>
+        <asp:TextBox ID="txtGotra" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label39" runat="server" Text="Manglik"></asp:Label>
+        <asp:RadioButton ID="rgbManglikYes" runat="server" GroupName="rgbManglik" 
+            Text="Yes" />
+        <asp:RadioButton ID="rgbManglikNo" runat="server" GroupName="rgbManglik" 
+            Text="No" />
+        <asp:RadioButton ID="rgbManglikNotKnow" runat="server" GroupName="rgbManglik" 
+            Text="Do not Know" />
+        <br />
+        <br />
+        <asp:Label ID="Label36" runat="server" Text="Star"></asp:Label>
+        <asp:DropDownList ID="ddlStar" runat="server">
+        <asp:ListItem>--Select Star--</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label37" runat="server" Text="Raashi/Moon Sign"></asp:Label>
+        <asp:DropDownList ID="ddlRaashi" runat="server">
+                <asp:ListItem>--Select Raashi/Moon Sign--</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label40" runat="server" Text="TimeofBirth(hour)"></asp:Label>
+        <asp:TextBox ID="txtTimeofBirthHour" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label41" runat="server" Text="TimeofBirth(min)"></asp:Label>
+        <asp:TextBox ID="txtTimeofBirthMin" runat="server"></asp:TextBox>
+        <br />
+            <asp:Button ID="btnReligiousSave" runat="server" Text="Save" />
+        &nbsp;<asp:Button ID="btnReligiousCancel" runat="server" Text="Cancel" /><br />
+        <br />
+        <asp:Label ID="Label14" runat="server" Font-Bold="True" 
+            Text="Edit Physical Appearance "></asp:Label>
+        <br />
+        <asp:Label ID="Label15" runat="server" Text="Height"></asp:Label>
+        <asp:DropDownList ID="ddlHeighFtIn" runat="server">
+        <asp:ListItem>--Feet/Inches--</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label16" runat="server" Text="Weight"></asp:Label>
+        <asp:DropDownList ID="ddlWeight" runat="server">
+            <asp:ListItem>--Select Weight--</asp:ListItem>
+        </asp:DropDownList>
+        <br />   
+         <asp:Label ID="Label19" runat="server" Text="Bloodgroup"></asp:Label> 
+          <asp:DropDownList ID="ddlBloodgroup" runat="server">
+          <asp:ListItem>--Select Bloodgroup--</asp:ListItem>
+        </asp:DropDownList>
+          <br />  
+        <asp:Label ID="Label17" runat="server" Text="Bodytype"></asp:Label>
+     
+            <asp:RadioButton    ID="rgbBTSlim" runat="server" Text="Slim"  GroupName="rgbBodyType" />
+        <asp:RadioButton ID="rgbBTAverage" runat="server" Text="Average"  GroupName="rgbBodyType"/>
+        <asp:RadioButton ID="rgbBTAthletic" runat="server" Text="Athletic" GroupName="rgbBodyType"/>
+        <asp:RadioButton ID="rgbBTHeavy" runat="server" Text="Heavy" GroupName="rgbBodyType"/>
+        <br />
+        <asp:Label ID="Label18" runat="server" Text="Complexion"></asp:Label>
+       <asp:RadioButton    ID="rgbVFair" runat="server" Text="Very Fair"  GroupName="rgbComplexion" />
+        <asp:RadioButton ID="rgbFair" runat="server" Text="Fair"  GroupName="rgbComplexion"/>
+        <asp:RadioButton ID="rgbWheatish" runat="server" Text="Wheatish" GroupName="rgbComplexion"/>
+        <asp:RadioButton ID="rgbWheatishMedium" runat="server" Text="Wheatish Medium" GroupName="rgbComplexion"/>
+         <asp:RadioButton ID="rgbDark" runat="server" Text="Dark" GroupName="rgbComplexion"/>
+        <br />
+        <asp:Label ID="Label20" runat="server" Text="Special Case"></asp:Label>
+        <asp:DropDownList ID="ddlSpecialCase" runat="server">
+          <asp:ListItem>--Select Special Case(if Any)--</asp:ListItem>   
+	 <asp:ListItem>No</asp:ListItem>
+ <asp:ListItem>None</asp:ListItem>
+ <asp:ListItem>Does not Matter</asp:ListItem>
+   <asp:ListItem>Physically challenged from birth</asp:ListItem> 
+      <asp:ListItem>Hiv positive</asp:ListItem> 
+ <asp:ListItem>Mentally challenged from birth  </asp:ListItem>         
+     <asp:ListItem>   Accidental / Physical abnormality affecting only looks </asp:ListItem>
+ <asp:ListItem>Physical abnormality affecting bodily functions due to accident </asp:ListItem>
+ <asp:ListItem>Physically challenged due to accident </asp:ListItem>
+ <asp:ListItem>Medically challenged condition of one or more vital organs </asp:ListItem>
+        </asp:DropDownList>
+        <br />
+          <asp:Button ID="btnPhysicalSave" runat="server" Text="Save" />
+        &nbsp;<asp:Button ID="btnPhysicalCancel" runat="server" Text="Cancel" /><br />
+        <br />
+        <asp:Label ID="Label21" runat="server" Text="Edit Professional Information " 
+            Font-Bold="True"></asp:Label>
+        <br />
+        <asp:Label ID="Label22" runat="server" Text="Highest qualification"></asp:Label>
+        <asp:DropDownList ID="ddlQualification" runat="server">
+        <asp:ListItem>--Select Highest qualification--</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label23" runat="server" Text="College / Institution"></asp:Label>
+        <asp:TextBox ID="txtCollege" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label49" runat="server" Text="Additional Degree"></asp:Label>
+        <asp:TextBox ID="txtAdditional" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label24" runat="server" Text="Education in Detail"></asp:Label>
+        <asp:TextBox ID="txtEducationDetails" runat="server" TextMode="MultiLine"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label25" runat="server" Text="Employee In"></asp:Label>
+        <asp:DropDownList ID="ddlEmployeeIn" runat="server">
+        <asp:ListItem>--Select Employee In--</asp:ListItem>
+        <asp:ListItem>Central Government </asp:ListItem>
+        <asp:ListItem>State Government </asp:ListItem>
+        <asp:ListItem>Private Sector </asp:ListItem>
+        <asp:ListItem>Public Sector </asp:ListItem>
+        <asp:ListItem>Self Employed </asp:ListItem>
+        <asp:ListItem>Not Working </asp:ListItem>
+        <asp:ListItem>Other</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+       
+        <asp:Label ID="Label26" runat="server" Text="Occupation"></asp:Label>
+        <asp:DropDownList ID="ddlOccupation" runat="server">
+        <asp:ListItem>--Select Occupation--</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label27" runat="server" Text="Occupation in Detail "></asp:Label>
+        <asp:TextBox ID="txtOccupation" runat="server" TextMode="MultiLine"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label28" runat="server" Text="Annual Income"></asp:Label>
+        <asp:TextBox ID="txtAnnualIncome" runat="server"></asp:TextBox>
+        <asp:DropDownList ID="ddlCurrency" runat="server">
+        <asp:ListItem>--Select Currency--</asp:ListItem>
+      
+        </asp:DropDownList>
+        <br />
+        <br />
+        <asp:Label ID="Label29" runat="server" Text="Work  Experience"></asp:Label>
+        <asp:TextBox ID="txtWorkExperience" runat="server"></asp:TextBox>
+        <br />
+          <asp:Button ID="btnProfessionSave" runat="server" Text="Save" />
+        &nbsp;<asp:Button ID="btnProfessionCancel" runat="server" Text="Cancel" /><br />
+        <br />
+        <asp:Label ID="Label8" runat="server" Font-Bold="True" Text="Edit Living in"></asp:Label>
+        <br />
+        <asp:Label ID="Label9" runat="server" Text="Country"></asp:Label>
+        <asp:DropDownList ID="ddlCountry" runat="server">
+        <asp:ListItem>--Select Country--</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label10" runat="server" Text="Citizenship"></asp:Label>
+        <asp:DropDownList ID="ddlCitizenShip" runat="server">
+        <asp:ListItem>--Select CitizenShip--</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label11" runat="server" Text="State"></asp:Label>
+        <asp:DropDownList ID="ddlState" runat="server">
+        <asp:ListItem>--Select State--</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label12" runat="server" Text="City"></asp:Label>
+        <asp:DropDownList ID="ddlCity" runat="server">
+        <asp:ListItem>--Select City--</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label13" runat="server" Text="Pincode"></asp:Label>
+        <asp:TextBox ID="txtPincode" runat="server"></asp:TextBox>
+        <br />
+          
+        <asp:Button ID="btnLivingSave" runat="server" Text="Save" />
+        &nbsp;<asp:Button ID="btnLivingCancel" runat="server" Text="Cancel" /><br />
+        <br />
+        <asp:Label ID="Label42" runat="server" Font-Bold="True" 
+            Text="Edit Family Information"></asp:Label>
+        <br />
+        <asp:Label ID="Label43" runat="server" Text="Family status"></asp:Label>
+        <asp:RadioButton ID="rgbMiddleClass" runat="server" GroupName="rgbFStatus" 
+            Text="Middle class" />
+        <asp:RadioButton ID="rgbUppermiddle" runat="server" GroupName="rgbFStatus" 
+            Text="Upper middle class" />
+        <asp:RadioButton ID="rgbRich" runat="server" GroupName="rgbFStatus" 
+            Text="Rich " />
+        <asp:RadioButton ID="rgbAffluent" runat="server" GroupName="rgbFStatus" 
+            Text="Affluent" />
+        <br />
+        <asp:Label ID="Label44" runat="server" Text="Family type"></asp:Label>
+        <asp:RadioButton ID="rgbJoint" runat="server" GroupName="rgbFType" 
+            Text="Joint" />
+        <asp:RadioButton ID="rgbNuclear" runat="server" GroupName="rgbFType" 
+            Text="Nuclear" />
+        <asp:RadioButton ID="rgbOther" runat="server" GroupName="rgbFType" 
+            Text="Other" />
+        <br />
+        <asp:Label ID="Label45" runat="server" Text="Family value"></asp:Label>
+        <asp:RadioButton ID="rgbOrthodox" runat="server" GroupName="rgbFValue" 
+            Text="Orthodox" />
+        <asp:RadioButton ID="rgbTraditional" runat="server" GroupName="rgbFValue" 
+            Text="Traditional" />
+        <asp:RadioButton ID="rgbModerate" runat="server" GroupName="rgbFValue" 
+            Text="Moderate" />
+        <asp:RadioButton ID="rgbLiberal" runat="server" GroupName="rgbFValue" 
+            Text="Liberal" />
+        <br />
+        <br />
+        <asp:Label ID="Label51" runat="server" Text="Father Name"></asp:Label>
+        <asp:TextBox ID="txtFatherName" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label52" runat="server" Text="Father occupation"></asp:Label>
+        <asp:DropDownList ID="ddlFatherOccupation" runat="server">
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label53" runat="server" Text="Mother Name"></asp:Label>
+        <asp:TextBox ID="txtMotherName" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label54" runat="server" Text="Mother occupation"></asp:Label>
+        <asp:DropDownList ID="ddlMotherOccupation" runat="server">
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label55" runat="server" Text="No.of brother"></asp:Label>
+        <asp:DropDownList ID="ddlBrother" runat="server">
+        </asp:DropDownList>
+&nbsp; <asp:Label ID="Label56" runat="server" Text="Brother married"></asp:Label>
+        <asp:DropDownList ID="ddlBrotherMarried" runat="server">
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label57" runat="server" Text="No. of sister"></asp:Label>
+        <asp:DropDownList ID="ddlSister" runat="server">
+        </asp:DropDownList>
+&nbsp;<asp:Label ID="Label65" runat="server" Text="Sister married"></asp:Label>
+        <asp:DropDownList ID="ddlSisterMarried" runat="server">
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label66" runat="server" Text="Do you live with parents?"></asp:Label>
+        <asp:RadioButton ID="rgbYes" runat="server" GroupName="rgbParentsLiving" Text="Yes"/>
+        <asp:RadioButton ID="rgbNo" runat="server" GroupName="rgbParentsLiving" Text="No" />
+        <br />
+         <asp:Label ID="Label67" runat="server" Text="Aboutfamily"></asp:Label>
+      
+        <asp:TextBox ID="txtAboutFamily" runat="server" TextMode="MultiLine"></asp:TextBox>
+        <br />
+        <asp:Button ID="btnFamilySave" runat="server" Text="Save" />
+        &nbsp;<asp:Button ID="btnFamilyCancel" runat="server" Text="Cancel" />
+        <br />
+      
+        <br />
+        <asp:Label ID="Label46" runat="server" Font-Bold="True" 
+            Text="Edit lifestyle & Interest"></asp:Label>
+        <br />
+        <asp:Label ID="Label47" runat="server" Text="Eating habits"></asp:Label>
+        <asp:RadioButton ID="rgbVegetarian" runat="server" GroupName="rgbEat" 
+            Text="Vegetarian" />
+        <asp:RadioButton ID="rgbNonVegetarian" runat="server" GroupName="rgbEat" 
+            Text="Non-Vegetarian" />
+        <asp:RadioButton ID="rgbEggetarian" runat="server" GroupName="rgbEat" 
+            Text="Eggetarian" />
+        <asp:RadioButton ID="rgbJain" runat="server" GroupName="rgbEat" Text="Jain" />
+        <br />
+        <asp:Label ID="Label48" runat="server" Text="Smoke"></asp:Label>
+        <asp:RadioButton ID="rgbSYes" runat="server" GroupName="rgbSmoke" Text="Yes" />
+        <asp:RadioButton ID="rgbSNo" runat="server" GroupName="rgbSmoke" Text="No" />
+        <asp:RadioButton ID="rgbSOccasionally" runat="server" GroupName="rgbSmoke" 
+            Text="Occasionally" />
+        <br />
+        <asp:Label ID="Label50" runat="server" Text="Drink"></asp:Label>
+              
+        <asp:RadioButton ID="rgbDYes" runat="server" GroupName="rgbDrink" Text="Yes" />
+        <asp:RadioButton ID="rgbDNo" runat="server" GroupName="rgbDrink" Text="No" />
+        <asp:RadioButton ID="rgbDOccasionally" runat="server" GroupName="rgbDrink" 
+            Text="Occasionally" />
+        <br />
+       
+        <asp:Label ID="Label68" runat="server" Text="Spoken Languages"></asp:Label>
+        <br />
+        <asp:Label ID="Label64" runat="server" Text="Sport /Fitness Acitvity"></asp:Label>
+        <br />
+        <asp:Label ID="Label58" runat="server" Text="Hobbies/Interest"></asp:Label>
+        <asp:TextBox ID="txtHobbieInterst" runat="server" TextMode="MultiLine"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label60" runat="server" Text="Favourite  Music"></asp:Label>
+        <asp:CheckBox ID="chkfilmy" runat="server" Text="Film songs" />
+        <asp:CheckBox ID="chkIndianclassic" runat="server" Text="Indian / Classical Music" />
+        <asp:CheckBox ID="chkWestern" runat="server" Text="Western Music" />
+        <br />
+        <asp:Label ID="Label61" runat="server" Text="Favourite destination"></asp:Label>
+        <asp:TextBox ID="txtFavDestination" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label62" runat="server" Text="Favourite book"></asp:Label>
+        <asp:TextBox ID="txtFavBook" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label63" runat="server" Text="Favourite author"></asp:Label>
+        <asp:TextBox ID="txtFavAuthor" runat="server"></asp:TextBox>
+        <br />
+        
+        <br />
+        <asp:Button ID="btnLifeStyleSave" runat="server" Text="Save" />
+              
+        &nbsp;<asp:Button ID="btnLifeStyleCancel" runat="server" Text="Cancel" />
+              
+        <br />
+    </div>
+    </form>
+</body>
+</html>

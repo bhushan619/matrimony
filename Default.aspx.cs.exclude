@@ -1,0 +1,47 @@
+﻿using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using MySql.Data.MySqlClient;
+using System.Linq;
+using System.Collections.Generic;
+using System.IO;
+
+public partial class _Default : System.Web.UI.Page
+{
+    DatabaseConnection dbc = new DatabaseConnection();
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        gethitcount();
+       
+    }
+    public void gethitcount()
+    {
+        lblUserCount.Text = "  Current user      :    " + Application["Online_UserCount"].ToString();
+
+        MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand("SELECT Hits FROM anuvaa_matrimony.hitscount", dbc.con);
+     
+        using (dbc.con)
+        {
+            dbc.con.Open();
+            dbc.dr = cmd.ExecuteReader();
+
+            if (dbc.dr.Read())
+            {
+                lblHits.Text = "Total Visits  : " + dbc.dr["Hits"].ToString();
+            }
+
+        }
+        dbc.con.Close();
+    }
+    protected void btnRegister_Click(object sender, EventArgs e)
+    {
+
+    }
+}
